@@ -1,11 +1,14 @@
-import { HomePage } from "./pages/HomePage"
+import { HomePage } from "./pages/HomePage";
+import { CartProvider } from "./providers/CartContext";
 
-function App() {  
+function App() {
   return (
     <>
-      <HomePage />
+      <CartProvider>
+        <HomePage />
+      </CartProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

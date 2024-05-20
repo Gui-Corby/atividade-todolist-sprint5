@@ -1,19 +1,16 @@
-import { useState } from "react";
-import { FruitForm } from "../../components/FruitForm";
-import { FruitList } from "../../components/FruitList";
+
+import { ProductList } from "../../components/ProductList";
+import { Cart } from "../../components/Cart";
+import { ProductProvider } from "../../providers/ProductContext";
 
 export const HomePage = () => {
-   const [fruitList, setFruitList] = useState([]);
+  return (
+    <main>
+      <ProductProvider>
+        <ProductList />
+      </ProductProvider>
 
-   const addFruit = (fruit) => {
-      const newFruit = { ...fruit, id: crypto.randomUUID() };
-      setFruitList([...fruitList, newFruit]);
-   };
-
-   return (
-      <main>
-         <FruitForm addFruit={addFruit} />
-         <FruitList fruitList={fruitList} setFruitList={setFruitList} />
-      </main>
-   );
+      <Cart />
+    </main>
+  );
 };
